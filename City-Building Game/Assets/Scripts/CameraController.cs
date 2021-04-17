@@ -42,11 +42,29 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region Zooming
         //Seeing what way the scroll wheel is turning and moving tthe camera in and out accordingly
         camCurZoom += Input.GetAxis("Mouse ScrollWheel") * -zoomSpeed;
         camCurZoom = Mathf.Clamp(camCurZoom, minZoom, maxZoom);
         //Linking to the camera
-
         cameraX.transform.localPosition = Vector3.up * camCurZoom;
+        #endregion
+
+        #region Rotating the camera
+        //Check if the RMB is down.
+        if (Input.GetMouseButton(1))
+        {
+            //Getting the position of the mouse.
+            float x = Input.GetAxis("Mouse X");
+            float y = Input.GetAxis("Mouse Y");
+
+            //Setting the roation
+            camCurRot += -y * rotapeed;
+            camCurRot = Mathf.Clamp(camCurRot, minRotate, MaxRotate);
+
+            //Updating the view with the settings.
+            transform.eulerAngles = new Vector3(camCurRot, transform.eulerAngles.y + (x * rotapeed), 0.0f);
+        }
+        #endregion
     }
 }

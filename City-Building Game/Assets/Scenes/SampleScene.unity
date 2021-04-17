@@ -250,9 +250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0
   zoomSpeed: 20
-  rotapeed: 0
-  minRotate: 0
-  MaxRotate: 0
+  rotapeed: 3
+  minRotate: -85
+  MaxRotate: -10
   minZoom: 5
   maxZoom: 50
   camCurRot: 0
