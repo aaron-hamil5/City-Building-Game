@@ -249,12 +249,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
-  zoomSpeed: 0
+  zoomSpeed: 20
   rotapeed: 0
   minRotate: 0
   MaxRotate: 0
-  minZoom: 0
-  maxZoom: 0
+  minZoom: 5
+  maxZoom: 50
   camCurRot: 0
   camCurZoom: 0
 --- !u!4 &249546142

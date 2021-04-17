@@ -31,15 +31,22 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #region Camera Link
         //Linking the camera to the main and setting the defaults.
         cameraX = Camera.main;
         camCurZoom = cameraX.transform.localPosition.y;
         camCurRot = -50;
+        #endregion
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Seeing what way the scroll wheel is turning and moving tthe camera in and out accordingly
+        camCurZoom += Input.GetAxis("Mouse ScrollWheel") * -zoomSpeed;
+        camCurZoom = Mathf.Clamp(camCurZoom, minZoom, maxZoom);
+        //Linking to the camera
+
+        cameraX.transform.localPosition = Vector3.up * camCurZoom;
     }
 }
