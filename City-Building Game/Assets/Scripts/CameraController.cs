@@ -66,5 +66,18 @@ public class CameraController : MonoBehaviour
             transform.eulerAngles = new Vector3(camCurRot, transform.eulerAngles.y + (x * rotapeed), 0.0f);
         }
         #endregion
+
+        #region Camera Movement
+        Vector3 forward = cameraX.transform.forward;
+        forward.y = 0.0f;
+        forward.Normalize();
+        Vector3 right = cameraX.transform.right;
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+        Vector3 dir = forward * moveZ + right * moveX;
+        dir.Normalize();
+        dir *= movementSpeed * Time.deltaTime;
+        transform.position += dir;
+        #endregion
     }
 }
