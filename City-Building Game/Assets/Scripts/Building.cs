@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public BuildingPreset preset;
     // Start is called before the first frame update
     void Start()
     {
